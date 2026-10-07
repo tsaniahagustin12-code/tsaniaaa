@@ -12,7 +12,7 @@
     <meta property="og:description" content="Satu surat, empat halaman. Sebuah ruang tenang untuk membaca.">
     <title>RILL SURAT - ini beneran surat</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" crossorigin href="./assets/index-jYbfW4FQ.css">
+    <link rel="stylesheet" crossorigin href="./index-jYbfW4FQ.css">
     <link rel="stylesheet" href="./overrides.css">
   </head>
   <body>
@@ -26,21 +26,16 @@
             }), '*');
           });
         };
-
         const startMusic = () => postToPlayer('playVideo');
         const pauseMusic = () => postToPlayer('pauseVideo');
-
-        // The embed itself has autoplay enabled. This retry covers slow loads.
         window.addEventListener('load', () => {
           startMusic();
           window.setTimeout(startMusic, 1200);
         }, { once: true });
-
-        // Stop playback as the reader leaves the site, including mobile browsers.
         window.addEventListener('pagehide', pauseMusic);
         window.addEventListener('beforeunload', pauseMusic);
       })();
     </script>
-    <script type="module" crossorigin src="./assets/index-BZw94S_D.js"></script>
+    <script type="module" crossorigin src="./index-BZw94S_D.js"></script>
   </body>
 </html>
