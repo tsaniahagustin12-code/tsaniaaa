@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta name="theme-color" content="#0D234D">
+    <meta name="siteName" content="RILL SURAT">
+    <meta name="siteDescription" content="Satu surat, empat halaman. Sebuah ruang tenang untuk membaca.">
+    <meta name="description" content="Satu surat, empat halaman. Sebuah ruang tenang untuk membaca.">
+    <meta property="og:title" content="RILL SURAT">
+    <meta property="og:description" content="Satu surat, empat halaman. Sebuah ruang tenang untuk membaca.">
+    <title>RILL SURAT - ini beneran surat</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" crossorigin href="./assets/index-jYbfW4FQ.css">
+    <link rel="stylesheet" href="./overrides.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      (() => {
+        const postToPlayer = (command) => {
+          document.querySelectorAll('iframe[src*="youtube.com/embed"]').forEach((frame) => {
+            frame.contentWindow?.postMessage(JSON.stringify({
+              event: 'command', func: command, args: []
+            }), '*');
+          });
+        };
+
+        const startMusic = () => postToPlayer('playVideo');
+        const pauseMusic = () => postToPlayer('pauseVideo');
+
+        // The embed itself has autoplay enabled. This retry covers slow loads.
+        window.addEventListener('load', () => {
+          startMusic();
+          window.setTimeout(startMusic, 1200);
+        }, { once: true });
+
+        // Stop playback as the reader leaves the site, including mobile browsers.
+        window.addEventListener('pagehide', pauseMusic);
+        window.addEventListener('beforeunload', pauseMusic);
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-BZw94S_D.js"></script>
+  </body>
+</html>

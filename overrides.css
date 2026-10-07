@@ -1,0 +1,38 @@
+/* Kept separate so the visual/music adjustment stays easy to revise. */
+.music-player {
+  width: 164px;
+  padding: 0 8px 7px;
+  left: 18px;
+  bottom: 92px;
+}
+
+.youtube-frame,
+.youtube-frame iframe {
+  width: 148px;
+  height: 83px;
+}
+
+.music-handle {
+  height: 30px;
+}
+
+.track-information {
+  padding-top: 8px;
+}
+
+.track-kicker,
+.drag-label {
+  font-size: 5px;
+}
+
+#track-title {
+  font-size: 10px;
+}
+
+@media (max-width: 760px) {
+  .music-player {
+    left: auto;
+    right: 10px;
+    bottom: 92px;
+  }
+}
